@@ -1,0 +1,83 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Web Testing Language",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#testcase"
+		},
+		{
+			"include": "#end"
+		},
+		{
+			"include": "#variableDef"
+		},
+		{
+			"include": "#variableUsage"
+		},
+		{
+			"include": "#assignment"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment",
+				"begin": "#",
+				"end": "\n"
+			}]
+		},
+
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.wtl",
+				"match": "\\b(click|send|navigateTo|verifyLabelContains|verifyPresenceOf|verifyUrlContains|call|var|includeLabels|includeButtons|includeInputs|verifyLabelContainsRex|print)\\b"
+			}]
+		},
+		"testcase": {
+			"patterns": [{
+				"name": "keyword.operator.new",
+				"begin": "(testcase|function|ret|end)",
+				"end": " "
+			}]
+		},
+		"variableDef": {
+			"patterns": [{
+				"name": "keyword.operator.new",
+				"match": "^[^=]*\\.(xpath|id)"
+			}]
+		},
+		"variableUsage": {
+			"patterns": [{
+				"name": "keyword.operator.new",
+				"match": "\\$\\$[a-zA-Z|\\d|_]+\\s*"
+			}]
+		},
+		"assignment": {
+			"patterns": [{
+				"name": "string.quoted.double.wtl",
+				"match": "(?<==)[\\w+|\\s+|/+|:+|\\-+|\\d|.+|!+|?+]+"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.wtl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.wtl",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.wtl"
+}

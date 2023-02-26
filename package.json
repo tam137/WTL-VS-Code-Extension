@@ -1,0 +1,25 @@
+{
+  "name": "wtl",
+  "displayName": "WTL",
+  "description": "Web Testing Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "wtl",
+      "aliases": ["Web Testing Language", "wtl"],
+      "extensions": ["wtl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "wtl",
+      "scopeName": "source.wtl",
+      "path": "./syntaxes/wtl.tmLanguage.json"
+    }]
+  }
+}
